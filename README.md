@@ -49,7 +49,7 @@ Como o projeto é um site estático (HTML/CSS/JS), não é necessário instalar 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/<usuario-ou-org>/dolce-vita-online.git
+   git clone https://github.com/Alunewie/Dolce-Vita.git
    ```
 2. Entre na pasta do projeto:
    ```bash
