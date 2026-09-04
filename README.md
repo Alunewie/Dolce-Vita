@@ -2,7 +2,7 @@
 
 Projeto de extensão desenvolvido no Bootcamp de **Desenvolvimento Web Responsivo** (UNISAGRADO), em parceria com a **Confeitaria Dolce Vita** (Bauru-SP).
 
-> 📌 Status atual: **Entrega 1 concluída** — levantamento de necessidades e alinhamento de escopo com o cliente. O desenvolvimento do site será iniciado na Entrega 2.
+> 📌 Status atual: **Entrega 1 concluída** — levantamento de necessidades e alinhamento de escopo com o cliente. O desenvolvimento do site será iniciado após a Entrega 1.
 
 ## 📖 Descrição do projeto
 
@@ -55,9 +55,9 @@ Como o projeto é um site estático (HTML/CSS/JS), não é necessário instalar 
    ```bash
    cd dolce-vita-online
    ```
-3. Abra o arquivo principal (`src/index.html`) diretamente no navegador, ou utilize a extensão **Live Server** do VS Code para uma melhor experiência de desenvolvimento.
+3. Abra o arquivo principal (`src/index.html`) diretamente no navegador, ou utilize a extensão **Live Server** do VS Code para uma melhor experiência de análise.
 
-Quando publicado, o site também estará disponível via **GitHub Pages** em: `https://<usuario-ou-org>.github.io/dolce-vita-online/`
+Quando publicado, o site também estará disponível via **GitHub Pages**
 
 ## 👥 Integrantes
 
