@@ -2,7 +2,7 @@
 
 Projeto de extensão desenvolvido no Bootcamp de **Desenvolvimento Web Responsivo** (UNISAGRADO), em parceria com a **Confeitaria Dolce Vita** (Bauru-SP).
 
-> 📌 Status atual: **Entrega 2 em andamento** — Desenvolvimento de site, conteúdo e funcionalidades, especificado de acordo com as necessidades que a faculdade estipulou.
+>  Status atual: **Entrega 2 em andamento** — Desenvolvimento de site, conteúdo e funcionalidades, especificado de acordo com as necessidades que a faculdade estipulou.
 
 ##  Descrição do projeto
 
@@ -35,7 +35,7 @@ Como o projeto é um site estático (HTML/CSS/JS), não é necessário instalar 
 
 Quando publicado, o site também estará disponível via **GitHub Pages**
 
-## 👥 Integrantes
+##  Integrantes
 
 | Nome | Curso | Função no projeto |
 |---|---|---|
