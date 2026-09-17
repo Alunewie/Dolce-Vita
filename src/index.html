@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#900000">
+  <meta name="description" content="Cardápio da Dolce Vita — projeto acadêmico com pedidos simulados.">
+  <title>Dolce Vita</title>
+  <link rel="icon" href="./favicon.svg">
+  <link rel="stylesheet" href="./css/estilo.css">
+  <!-- Manter na ordem correta, por favor. -->
+<script src="./js/produtos.js" defer></script>
+  <script src="./js/armazenamento.js" defer></script>
+    <script src="./js/site.js" defer></script>
+  <script src="./js/pedidos.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="header">
+    <div class="nav-wrap">
+      <button class="brand" data-pagina="inicio" aria-label="Dolce Vita — início">
+        <img src="./images/logo.webp" alt="Dolce Vita Confeitaria">
+      </button>
+      <nav aria-label="Navegação principal">
+        <button data-pagina="sobre">Sobre nós</button>
+        <button data-pagina="cardapio" class="current" aria-current="page">Cardápio</button>
+        <button data-pagina="contato">Contato</button>
+        <button data-pagina="pedidos">Meu pedido</button>
+      </nav>
+      <label class="search">
+        <input id="busca" type="search" aria-label="Buscar no cardápio" placeholder="O que vai adoçar seu dia?">
+      </label>
+      <button class="bag" data-sacola aria-label="Abrir sacola">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z M9 9V5a3 3 0 0 1 6 0v4"/></svg>
+        <span id="contador-sacola">0</span>
+      </button>
+    </div>
+  </header>
+  <div class="pages-demo-banner">
+    <strong>Página de demonstração acadêmica, não utilizar em fins lucrativos.</strong>
+  </div>
+
+  <main id="conteudo" class="page-content" tabindex="-1">
+    <section id="cardapio" class="pagina">
+      <div class="menu-heading">
+        <h1>O seu momento doce.</h1>
+        <p>Escolha seu favorito. A gente cuida do resto.</p>
+      </div>
+      <div class="category-wrap">
+        <div id="categorias" class="category-list" role="group" aria-label="Categorias do cardápio"></div>
+      </div>
+      <section class="menu-section" aria-label="Produtos">
+        <div class="menu-caption"><span id="titulo-categoria"></span><span id="quantidade-produtos"></span></div>
+        <div id="lista-produtos" class="products"></div>
+        <div id="busca-vazia" class="empty" hidden>
+          <h2>Nenhum doce por aqui.</h2>
+          <p>Tente outro nome ou escolha uma categoria.</p>
+        </div>
+      </section>
+      <div class="menu-bottom"><button data-sacola>Ver minha sacola</button></div>
+    </section>
+
+    <section id="sobre" class="pagina" hidden>
+      <div class="about">
+        <div>
+          <h1>Mais que doces,<br>momentos especiais.</h1>
+          <p>A Dolce Vita nasceu do amor pela confeitaria e do desejo de transformar ingredientes em momentos especiais, para que você saboreie a doçura da vida em cada detalhe.</p>
+          <button class="primary" data-pagina="cardapio">Conheça nosso cardápio</button>
+          <div class="values">
+            <div><span aria-hidden="true">♧</span><strong>Qualidade</strong></div>
+            <div><span aria-hidden="true">♡</span><strong>Sabor</strong></div>
+            <div><span aria-hidden="true">✧</span><strong>Experiência</strong></div>
+          </div>
+        </div>
+        <img class="about-art" src="./images/sobre.webp" alt="Brownie com creme e morangos. Feito para adoçar sua vida.">
+      </div>
+      <div id="descobrir" class="discover" hidden>
+        <h2>Conheça nossos produtos</h2>
+        <div id="atalhos-categorias"></div>
+      </div>
+    </section>
+
+    <section id="contato" class="pagina contact" hidden>
+      <h1>Fale com a gente</h1>
+      <div class="contact-columns">
+        <div class="contact-card">
+          <h2>Entre em contato</h2>
+          <dl>
+            <dt>WhatsApp</dt><dd>Número em breve</dd>
+            <dt>E-mail</dt><dd>Dolcevitaconfeitaria.bauru@gmail.com</dd>
+            <dt>Instagram</dt><dd>@dolcevita.bauru</dd>
+            <dt>Horário de atendimento</dt><dd>Segunda a Sábado<br>Horários: 08h até 22h.</dd>
+          </dl>
+          <p>Doces momentos sempre!</p>
+        </div>
+        <form id="formulario-contato" class="contact-form">
+          <h2>Mande uma mensagem</h2>
+          <label>Nome<input name="nome" required minlength="2" maxlength="100" placeholder="Seu nome"></label>
+          <label>E-mail<input name="email" type="email" required maxlength="200" placeholder="Seu e-mail"></label>
+          <label>Mensagem<textarea name="mensagem" required minlength="5" maxlength="2000" placeholder="Escreva sua mensagem aqui…"></textarea></label>
+          <button class="primary">Simular envio</button>
+          <p id="aviso-contato" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="pedidos" class="pagina tracking-page" hidden>
+      <header><h1>Meu pedido</h1><p>Consulte a simulação feita neste mesmo navegador.</p></header>
+      <div class="tracking-layout">
+        <form id="formulario-consulta" class="tracking-form">
+          <label>Código do pedido<input id="codigo-consulta" required maxlength="50" placeholder="Cole o código completo"></label>
+          <label>Celular com DDD<input id="telefone-consulta" type="tel" required maxlength="24" placeholder="(14) 99999-9999"></label>
+          <button class="primary">Consultar pedido</button>
+          <p id="erro-consulta" class="error" role="status"></p>
+        </form>
+        <div id="resultado-pedido" class="tracking-result" aria-live="polite">
+          <h2>Acompanhe sua simulação</h2><p>Use o código gerado ao finalizar e o celular informado no pedido.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Dolce Vita Confeitaria</span><p>Versão Acadêmica • Pedidos locais e contato simulado, sem envio à loja.</p></footer>
+  <div id="aviso-sacola" class="cart-notice" role="status"></div>
+  <button id="sacola-celular" class="mobile-cart" data-sacola hidden></button>
+
+  <!-- O dialog cuida do foco, do fundo escuro e da tecla Esc, se for necessário usar. -->
+  <dialog id="detalhes" class="product-dialog" aria-labelledby="nome-produto">
+    <button class="fechar-dialogo" data-fechar="detalhes" aria-label="Fechar detalhes">×</button>
+    <img id="foto-produto" alt="">
+    <div class="detail-copy">
+      <span id="categoria-produto" class="detail-category"></span>
+      <h2 id="nome-produto" class="detail-title"></h2>
+      <p id="descricao-produto" class="detail-description"></p>
+      <strong id="preco-produto" class="detail-price"></strong>
+      <p class="product-info">Confira o volume no nome das bebidas. Peso, porção e informações sobre ingredientes e alergênicos dos alimentos ainda não foram cadastrados.</p>
+      <label class="detail-quantity">Quantidade <span class="quantity"><select id="quantidade-detalhes"></select></span></label>
+      <button id="adicionar-detalhes" class="primary">Adicionar à sacola</button>
+    </div>
+  </dialog>
+
+  <dialog id="sacola" class="cart-panel" aria-labelledby="titulo-sacola">
+    <button class="fechar-dialogo" data-fechar="sacola" aria-label="Fechar sacola">×</button>
+    <h2 id="titulo-sacola" class="cart-title">Sua sacola</h2>
+    <p class="demo-note">Simulação local. Não há envio à loja ou cobrança real.</p>
+    <ol id="etapas" class="checkout-steps"><li data-etapa="itens"><span>1</span>Sacola</li><li data-etapa="dados"><span>2</span>Dados</li><li data-etapa="revisao"><span>3</span>Revisão</li></ol>
+
+    <section id="etapa-itens">
+      <div id="itens-sacola" class="cart-items"></div>
+      <div class="total"><span>Total</span><strong id="total-sacola"></strong></div>
+      <button id="continuar-pedido" class="primary">Continuar pedido</button>
+      <button id="continuar-comprando" class="text-button">Continuar escolhendo</button>
+    </section>
+
+    <section id="etapa-dados" hidden>
+      <button class="back" data-voltar="itens">← Voltar à sacola</button>
+      <div class="demo-fill"><p>Use dados fictícios para apresentar.</p><button id="preencher-exemplo" class="secondary-button">Preencher exemplo</button></div>
+      <form id="formulario-pedido" class="checkout">
+        <label>Nome<input name="nome" required minlength="2" maxlength="100" autocomplete="off"></label>
+        <label>Celular com DDD<input name="telefone" type="tel" required maxlength="24" autocomplete="off"></label>
+        <fieldset><legend>Como deseja receber?</legend>
+          <label><input name="recebimento" type="radio" value="retirada" checked>Retirada</label>
+          <label><input name="recebimento" type="radio" value="entrega">Entrega</label>
+        </fieldset>
+        <label id="campo-endereco" hidden>Endereço<input name="endereco" minlength="10" maxlength="500" autocomplete="off"></label>
+        <label>Observações<textarea name="observacoes" maxlength="1000"></textarea></label>
+        <p id="erro-dados" class="error" role="status"></p>
+        <button class="primary">Revisar pedido</button>
+      </form>
+    </section>
+
+    <section id="etapa-revisao" class="order-review" hidden>
+      <button class="back" data-voltar="dados">← Corrigir dados</button>
+      <div id="resumo-cliente" class="review-customer"></div>
+      <ul id="resumo-itens" class="order-lines"></ul>
+      <div class="total"><span>Total</span><strong id="total-revisao"></strong></div>
+      <p class="demo-note">Retirada e entrega são demonstrativas. Nenhum pagamento será solicitado.</p>
+      <p id="erro-pedido" class="error" role="status"></p>
+      <button id="confirmar-pedido" class="primary">Confirmar simulação</button>
+    </section>
+
+    <section id="etapa-sucesso" class="success" hidden>
+      <h2>Simulação registrada!</h2>
+      <p>Guarde o código e consulte neste mesmo navegador.</p>
+      <code id="codigo-gerado" class="receipt-code"></code>
+      <strong id="total-confirmado"></strong>
+      <button id="copiar-codigo" class="secondary-button">Copiar código</button>
+      <p id="aviso-copia" role="status"></p>
+      <button id="acompanhar-pedido" class="primary">Consultar meu pedido</button>
+    </section>
+  </dialog>
+</body>
+</html>
