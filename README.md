@@ -2,9 +2,9 @@
 
 Projeto de extensão desenvolvido no Bootcamp de **Desenvolvimento Web Responsivo** (UNISAGRADO), em parceria com a **Confeitaria Dolce Vita** (Bauru-SP).
 
-> 📌 Status atual: **Entrega 1 concluída** — levantamento de necessidades e alinhamento de escopo com o cliente. O desenvolvimento do site será iniciado após a Entrega 1.
+> 📌 Status atual: **Entrega 2 em andamento** — Desenvolvimento de site, conteúdo e funcionalidades, especificado de acordo com as necessidades que a faculdade estipulou.
 
-## 📖 Descrição do projeto
+##  Descrição do projeto
 
 A Confeitaria Dolce Vita não possui um canal digital centralizado para apresentar seus produtos, dependendo de redes sociais, aplicativos de delivery e mensagens diretas para atender clientes. Isso dificulta a busca por informações e gera um atendimento pouco organizado.
 
@@ -15,11 +15,11 @@ Este projeto propõe o desenvolvimento de um **cardápio digital em formato de s
 **Período do projeto:** 06/08/2026 a 24/09/2026
 **Disciplina:** Desenvolvimento Web Responsivo — Prof. Vinicius Santos Andrade
 
-## 🎯 Objetivo
+##  Objetivo
 
 Desenvolver um site de cardápio digital que centralize produtos, preços e informações da confeitaria, oferecendo uma experiência de navegação intuitiva, moderna e responsiva para o cliente final.
 
-## 🛠️ Tecnologias utilizadas
+##  Tecnologias utilizadas
 
 - **HTML5** — estrutura das páginas
 - **CSS3** — estilização e responsividade
@@ -28,34 +28,10 @@ Desenvolver um site de cardápio digital que centralize produtos, preços e info
 - **Git & GitHub** — controle de versão
 - **GitHub Pages** — hospedagem do site
 
-## 📁 Estrutura do projeto
 
-```
-dolce-vita-online/
-├── docs/
-│   └── entregas/         # Documentos das entregas (Entrega 1, Entrega 2, atas, anexos)
-├── assets/
-│   ├── img/              # Imagens e ícones do site
-│   ├── css/              # Arquivos de estilo
-│   └── js/                # Scripts JavaScript
-├── src/                  # Páginas HTML do site (em construção a partir da Entrega 2)
-├── README.md
-└── .gitignore
-```
-
-## 🚀 Instruções para instalação e execução
+##  Instruções para execução
 
 Como o projeto é um site estático (HTML/CSS/JS), não é necessário instalar dependências.
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Alunewie/Dolce-Vita.git
-   ```
-2. Entre na pasta do projeto:
-   ```bash
-   cd dolce-vita-online
-   ```
-3. Abra o arquivo principal (`src/index.html`) diretamente no navegador, ou utilize a extensão **Live Server** do VS Code para uma melhor experiência de análise.
 
 Quando publicado, o site também estará disponível via **GitHub Pages**
 
@@ -75,7 +51,3 @@ Quando publicado, o site também estará disponível via **GitHub Pages**
 | William Carlos Guedes | Análise e Desenvolvimento de Sistemas | Documentação |
 
 **Orientador:** Prof. Vinicius Santos Andrade
-
-## 📄 Documentação
-
-A proposta completa da Entrega 1 (contextualização, objetivos, cronograma e responsabilidades) está disponível em [`docs/entregas/`](./docs/entregas/).
