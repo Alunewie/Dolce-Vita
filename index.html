@@ -5,16 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#900000">
   <meta name="description" content="Cardápio da Dolce Vita — projeto acadêmico com pedidos simulados.">
-  <title>Dolce Vita</title>
+  <title>Dolce Vita | Confeitaria</title>
   <link rel="icon" href="./favicon.svg">
-  <link rel="stylesheet" href="./css/estilo.css">
-  <!-- Manter na ordem correta, por favor. -->
-<script src="./js/produtos.js" defer></script>
-  <script src="./js/armazenamento.js" defer></script>
-    <script src="./js/site.js" defer></script>
-  <script src="./js/pedidos.js" defer></script>
+  <link rel="stylesheet" href="./css/estilo.css?v=6">
+  <!-- Parte de JavaScript. -->
+  <script src="./js/produtos.js?v=6" defer></script>
+  <script src="./js/armazenamento.js?v=6" defer></script>
+  <script src="./js/site.js?v=6" defer></script>
+  <script src="./js/pedidos.js?v=6" defer></script>
 </head>
 <body>
+  <!-- Abertura curta para dar tempo de carregar os elementos caso a internet esteja lenta -->
+  <div id="abertura" class="abertura" role="status" aria-label="Carregando o site">
+    <div class="abertura-conteudo">
+      <picture>
+        <source media="(prefers-reduced-motion: reduce)" srcset="./images/coelhinho-cookie.png?v=5">
+        <img src="./images/coelhinho-cookie.gif?v=5" width="144" height="144" alt="" fetchpriority="high">
+      </picture>
+      <p>Carregando...</p>
+    </div>
+  </div>
+  <noscript><style>.abertura { display:none; }</style></noscript>
+  <script src="./js/abertura.js?v=6"></script>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="header">
     <div class="nav-wrap">
@@ -22,8 +34,9 @@
         <img src="./images/logo.webp" alt="Dolce Vita Confeitaria">
       </button>
       <nav aria-label="Navegação principal">
+        <button data-pagina="inicio" class="current" aria-current="page">Início</button>
         <button data-pagina="sobre">Sobre nós</button>
-        <button data-pagina="cardapio" class="current" aria-current="page">Cardápio</button>
+        <button data-pagina="cardapio">Cardápio</button>
         <button data-pagina="contato">Contato</button>
         <button data-pagina="pedidos">Meu pedido</button>
       </nav>
@@ -41,7 +54,34 @@
   </div>
 
   <main id="conteudo" class="page-content" tabindex="-1">
-    <section id="cardapio" class="pagina">
+    <section id="inicio" class="pagina">
+      <div class="welcome">
+        <div class="welcome-copy">
+          <h1>A vida pede<br>um momento doce.</h1>
+          <p>Uma pausa, um café, um doce favorito. Encontre o sabor que combina com o seu dia.</p>
+          <div class="welcome-actions">
+            <button class="primary" data-pagina="cardapio">Escolher meu doce</button>
+            <button class="welcome-link" data-pagina="sobre">Conheça a Dolce Vita</button>
+          </div>
+          <div class="welcome-note">
+            <img src="./images/coelhinho-cookie.png?v=5" width="60" height="60" alt="">
+            <span>Pequenas pausas.<br><strong>Doces momentos.</strong></span>
+          </div>
+        </div>
+        <figure class="welcome-picture">
+          <img src="./images/sobre.webp" width="454" height="475" alt="Brownie com camadas de creme, chocolate e morangos frescos.">
+          <figcaption>Chocolate e morango. Uma combinação para saborear.</figcaption>
+        </figure>
+      </div>
+      <div id="descobrir" class="discover">
+        <h2>Qual vai ser o seu favorito?</h2>
+        <p>Explore o cardápio e encontre a sua próxima pausa doce.</p>
+        <div id="atalhos-categorias"></div>
+        <button class="discover-all" data-pagina="cardapio">Explorar o cardápio</button>
+      </div>
+    </section>
+
+    <section id="cardapio" class="pagina" hidden>
       <div class="menu-heading">
         <h1>O seu momento doce.</h1>
         <p>Escolha seu favorito. A gente cuida do resto.</p>
@@ -74,14 +114,12 @@
         </div>
         <img class="about-art" src="./images/sobre.webp" alt="Brownie com creme e morangos. Feito para adoçar sua vida.">
       </div>
-      <div id="descobrir" class="discover" hidden>
-        <h2>Conheça nossos produtos</h2>
-        <div id="atalhos-categorias"></div>
-      </div>
+
     </section>
 
     <section id="contato" class="pagina contact" hidden>
       <h1>Fale com a gente</h1>
+      <p class="contact-intro">Seu próximo doce momento começa com uma conversa.</p>
       <div class="contact-columns">
         <div class="contact-card">
           <h2>Entre em contato</h2>
@@ -120,11 +158,11 @@
     </section>
   </main>
 
-  <footer><span>Dolce Vita Confeitaria</span><p>Versão Acadêmica • Pedidos locais e contato simulado, sem envio à loja.</p></footer>
+  <footer><div class="footer-brand"><span>Dolce Vita Confeitaria</span><small>Doces momentos sempre.</small></div><p>Versão Acadêmica • Pedidos locais e contato simulado, sem envio à loja.</p></footer>
   <div id="aviso-sacola" class="cart-notice" role="status"></div>
   <button id="sacola-celular" class="mobile-cart" data-sacola hidden></button>
 
-  <!-- O dialog cuida do foco, do fundo escuro e da tecla Esc, se for necessário usar. -->
+  <!-- O dialog nativo cuida do foco, do fundo escuro e da tecla Esc na parte de pedidos, caso esteja no computador. -->
   <dialog id="detalhes" class="product-dialog" aria-labelledby="nome-produto">
     <button class="fechar-dialogo" data-fechar="detalhes" aria-label="Fechar detalhes">×</button>
     <img id="foto-produto" alt="">
@@ -180,6 +218,8 @@
     </section>
 
     <section id="etapa-sucesso" class="success" hidden>
+      <img class="mascot-success" src="./images/coelhinho-cookie.png?v=5" width="120" height="120" alt="Coelhinho da Dolce Vita com seu cookie">
+      <span class="success-label">Tudo certo por aqui ✓</span>
       <h2>Simulação registrada!</h2>
       <p>Guarde o código e consulte neste mesmo navegador.</p>
       <code id="codigo-gerado" class="receipt-code"></code>
